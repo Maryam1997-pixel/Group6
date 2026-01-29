@@ -61,5 +61,20 @@ curl -X POST http://localhost:3000/api/students \
 - Configure **ALB target group health check** to `/health`.
 - Keep `API_KEY` as an environment variable (do NOT hardcode).
 
+
+## A summary of part A:
+
+1. This project is a Node.js REST API developed for the ITE501 Cloud Computing final project.
+2. The API manages Student and Employee data using a RESTful architecture.
+3. API Key–based authentication is implemented to secure protected endpoints.
+4. A public health check endpoint is included for application monitoring.
+5. The application runs successfully in a local environment.
+6. The project is version-controlled and hosted on a GitHub repository.
+7. Environment variables are used for configuration and security.
+8. The application is prepared for deployment on AWS EC2.
+9. The design supports future integration with Load Balancer and Auto Scaling.
+10. The project focuses on cloud deployment and DevOps practices rather than full application development.
+
+
 ## License
 Educational use for ITE501.
