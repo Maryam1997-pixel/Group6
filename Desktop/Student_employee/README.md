@@ -1,4 +1,4 @@
-# ITE501 Starter API (Node.js/Express) — Student/Employee Management
+# ITE501 Starter API (Node.js/Express) — Student/Employee Management 
 
 This is a **ready-made REST API** for ITE501 projects. Students should:
 1) Download this project, **push to their own GitHub repo**,  
