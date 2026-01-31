@@ -15,9 +15,26 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            cd ${{ secrets.EC2_APP_DIR }}
-            git pull origin main
-            npm install --production
-            sudo systemctl restart group6-api
-            curl -s http://localhost:3000/health
+         script: |
+  set -e
+  cd ${{ secrets.EC2_APP_DIR }}
+  git pull origin main
+  npm install --production
+
+  # Restart service (non-interactive sudo)
+  sudo -n systemctl restart group6-api
+
+  # Wait for API to be up (30 seconds max)
+  for i in {1..10}; do
+    if curl -s http://localhost:3000/health; then
+      echo "API is UP"
+      exit 0
+    fi
+    echo "Waiting for API... attempt $i"
+    sleep 3
+  done
+
+  echo "API did not start. Showing service logs:"
+  sudo -n systemctl status group6-api --no-pager -l || true
+  sudo -n journalctl -u group6-api -n 80 --no-pager || true
+  exit 1
