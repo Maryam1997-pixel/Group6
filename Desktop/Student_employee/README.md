@@ -73,7 +73,7 @@ curl -X POST http://localhost:3000/api/students \
 7. Environment variables are used for configuration and security.
 8. The application is prepared for deployment on AWS EC2.
 9. The design supports future integration with Load Balancer and Auto Scaling.
-10. The project focuses on cloud deployment and DevOps practices rather than full application development.
+10. The project focuses on cloud deployment and DevOps practices rather than full application development....
 
 
 ## License
